@@ -1,9 +1,9 @@
 <?php include '../classes/Adminlogin.php';?>
 <?php 
   $al = new Adminlogin();
-  if ($_SERVER['REQUEST_METHOD']== 'POST'){
-  	$adminUser = $_POST['adminUser'];
-  	$adminPass = md5($_POST['adminPass']);
+  if ($_SERVER['REQUEST_METHOD']== 'POST'){ //If method gets post what happed?After that condintion it will hold data.
+  	$adminUser = $_POST['adminUser'];// holding adminUser
+  	$adminPass = md5($_POST['adminPass']);// holding adminPass
 
   	$loginChk =$al->adminLogin($adminUser,$adminPass);
   }
@@ -18,10 +18,10 @@
 <body>
 <div class="container">
 	<section id="content">
-		<form action="login.php" method="post">
+		<form action="login.php" method="post"> 			
 			<h1>Admin Login</h1>
 			<span style="color:red;font-size:18px;">
-				<?php
+				<?php				
 				     if (isset($loginChk)){
 				     	echo $loginChk;
 				     } 
