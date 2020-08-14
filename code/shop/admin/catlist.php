@@ -1,4 +1,4 @@
-﻿<?php include 'inc/header.php';?>
+<?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
 <?php include '../classes/Category.php';?>
 <?php
@@ -14,7 +14,7 @@
         <div class="grid_10">
             <div class="box round first grid">
                 <h2>Category List</h2>
-                <div class="block">
+                <div class="block"> 
                 <?php
                 	if (isset($delCat)) {
                 		echo "$delCat";
@@ -30,10 +30,10 @@
 					</thead>
 					<tbody>
 						<?php
-						$getCat=$cat->getAllCat();
-						if($getCat){
-							$i=0;
-							while($result=$getCat->fetch_assoc()){
+						$getCat=$cat->getAllCat(); //we are calling a function name getAllCat();
+						if($getCat){ // if it get The variable $getCat
+							$i=0; // we have to show serial number so initializing i=0;
+							while($result=$getCat->fetch_assoc()){//all will be fetch from getCat
 								$i++;
 							
 						?>

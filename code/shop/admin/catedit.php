@@ -1,8 +1,8 @@
 <?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
 <?php include '../classes/Category.php';?>
-<?php
-    if(!isset($_GET['catid']) ||$_GET ['catid']==NULL ){
+<?php // We have to edit those besis of their catId so we have to hold that.
+    if(!isset($_GET['catid']) ||$_GET ['catid']==NULL ){ //if dont get any id then it will send to catlist.php 
         echo "<script>window.location='catlist.php';</script>";
     }else{
         $id=$_GET ['catid'];
@@ -10,9 +10,7 @@
           $cat= new Category();
          if ($_SERVER['REQUEST_METHOD']== 'POST'){
           $catName = $_POST['catName'];
-    
-
-    $updateCat =$cat->catUpdate($catName, $id);
+          $updateCat =$cat->catUpdate($catName,$id);
   }
 ?>
         <div class="grid_10">
@@ -35,7 +33,7 @@
                     <table class="form">					
                         <tr>
                             <td>
-                                <input type="text" name="catName" value="<?php echo $result['catName'];  ?>" class="medium" />
+                                <input type="text" name="catName" value="<?php echo $result['catName'];//it will show the catname in box?>" class="medium" />
                             </td>
                         </tr>
 						<tr> 
