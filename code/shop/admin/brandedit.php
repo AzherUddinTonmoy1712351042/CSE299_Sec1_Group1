@@ -15,7 +15,7 @@
 ?>
         <div class="grid_10">
             <div class="box round first grid">
-                <h2>Update Category</h2>
+                <h2>Update Brand</h2>
                <div class="block copyblock"> 
                 <?php 
                 if (isset($updateBrand)){
