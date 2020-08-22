@@ -4,7 +4,7 @@
 
 <?php
  $brand= new Brand();
- if ($_SERVER['REQUEST_METHOD']== 'POST'){
+ if ($_SERVER['REQUEST_METHOD']=='POST'){
     $brandName = $_POST['brandName'];
     $insertBrand =$brand->brandInsert($brandName);
   }

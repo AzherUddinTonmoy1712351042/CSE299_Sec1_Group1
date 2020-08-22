@@ -11,18 +11,18 @@ class Brand{
 
 	public function __construct(){
 
-		$this->db =new Database();
+		$this->db =new Database();//we created objects to access their functions.
 		$this->fm =new Format();
 	}
 	public function brandInsert($brandName){
 	$brandName=$this->fm->validation($brandName); //this function will tream space,backslash and secure data. 
 	$brandName=mysqli_real_escape_string($this->db->link, $brandName);//for avoiding single coutation in string.
 
-	If(empty($brandName)){
+	If(empty($brandName)){ //if don't get any name
 		$msg= "<span class='error'>Brand must not be empty!</span>";
 		return $msg;
 	}
-	else{
+	else{ // if they get any name
 		$query="INSERT INTO tbl_brand(brandName) values('$brandName')";
 		$brandinsert=$this->db->insert($query);
 		if($brandinsert){
@@ -44,7 +44,7 @@ class Brand{
 }
 
     public function getBrandById($id){
-        $query= "SELECT * FROM tbl_brand WHERE brandId='$id'";//it catId match with ($id) which we sent then it will take.
+        $query= "SELECT * FROM tbl_brand WHERE brandId='$id'";//it brandId match with ($id) which we sent then it will take.
 		$result=$this->db->select($query);
 		return $result;
     }

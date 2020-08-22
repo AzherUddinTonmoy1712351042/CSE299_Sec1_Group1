@@ -64,5 +64,11 @@ class Product{
 
 
 	}
+    public function getAllProduct(){
+    	$query= "SELECT * From tbl_product ORDER BY productId DESC ";
+    	$result=$this->db->select($query);
+    	return $result;
+    }
+
 }
 ?>

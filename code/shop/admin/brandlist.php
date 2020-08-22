@@ -4,7 +4,7 @@
 <?php
  $brand= new Brand();
  
- if (isset($_GET['delbrand'])) {
+ if (isset($_GET['delbrand'])) {//for delete brand name 
 
  	$id = $_GET['delbrand'];
  	$delBrand = $brand->delBrandById($id);
@@ -34,7 +34,7 @@
 					</thead>
 					<tbody>
 						<?php
-						$getBrand=$brand->getAllBrand(); //we are calling a function name getAllCat();
+						$getBrand=$brand->getAllBrand(); //we are calling a function name getAllBrand();
 						if($getBrand){ // if it get The variable $getCat
 							$i=0; // we have to show serial number so initializing i=0;
 							while($result=$getBrand->fetch_assoc()){//all will be fetch from getCat
