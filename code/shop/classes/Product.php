@@ -18,11 +18,11 @@ class Product{
 	public function productInsert($data, $file){
 
 		$productName=mysqli_real_escape_string($this->db->link, $data['productName']);
-		$catId      =mysqli_real_escape_string($this->db->link, $data['catId']);
-		$brandId    =mysqli_real_escape_string($this->db->link, $data['brandId']);
-		$body       =mysqli_real_escape_string($this->db->link, $data['body']);
-		$price      =mysqli_real_escape_string($this->db->link, $data['price']);
-		$type       =mysqli_real_escape_string($this->db->link, $data['type']);
+		$catId=mysqli_real_escape_string($this->db->link, $data['catId']);
+		$brandId=mysqli_real_escape_string($this->db->link, $data['brandId']);
+		$body=mysqli_real_escape_string($this->db->link, $data['body']);
+		$price=mysqli_real_escape_string($this->db->link, $data['price']);
+		$type=mysqli_real_escape_string($this->db->link, $data['type']);
 		
 
 		$permited  = array('jpg', 'jpeg', 'png', 'gif');
