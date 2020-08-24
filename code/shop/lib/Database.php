@@ -1,4 +1,7 @@
-<?php include '../config/config.php';?>
+<?php
+   $filepath = realpath(dirname(__FILE__));
+   include_once ($filepath.'/../config/config.php');
+?>
 <?php
 Class Database{
   //Here in public properties,we declare the constants(config.php)
