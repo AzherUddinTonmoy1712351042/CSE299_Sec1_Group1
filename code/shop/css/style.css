@@ -41,6 +41,8 @@ body{
 	float:left;
 	width:33%;
 }
+.success{font-size:18px;color:green}
+.error{font-size:18px;color:red}
 /**** Header Top Right ****/
 .header_top_right{
 	float:left;
@@ -614,6 +616,7 @@ p.note{
 	position:relative; 
 }
 .images_1_of_4  img{
+	height:200px;
 	max-width:100%;
 }
 .discount{

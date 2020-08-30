@@ -1,4 +1,4 @@
-﻿<?php include 'inc/header.php';?>
+<?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
 <?php include '../classes/Product.php';?>
 <?php include_once '../helpers/Format.php';?>
@@ -29,7 +29,7 @@ $fm= new Format();
             <table class="data display datatable" id="example">
 			<thead>
 				<tr>
-					<th>SL</th>
+					<th>SL</th> 
 					<th>Product Name</th>
 					<th>Category</th>
 					<th>Brand</th>
