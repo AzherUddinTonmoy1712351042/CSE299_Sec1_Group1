@@ -1,9 +1,18 @@
 <?php include 'inc/header.php';?>
 <?php 
+   if(isset($_GET['delpro'])){
+   	 $delId=$_GET ['delpro'];
+   	 $delProduct=$ct->delProductByCart($delId);
+   }
+?>
+<?php 
       if($_SERVER['REQUEST_METHOD']== 'POST'){
       $cartId = $_POST['cartId'];
       $quantity = $_POST['quantity'];
       $updateCart=$ct->updateCartQuantity($cartId,$quantity);
+      if($quantity <=0 ){
+          	$delProduct=$ct->delProductByCart($cartId);
+          }
       }
  ?>
  <div class="main">
@@ -14,6 +23,9 @@
 			    	<?php 
                       if(isset($updateCart)){
                       	echo $updateCart;
+                      }
+                      if(isset($delProduct)){
+                      	echo $delProduct;
                       }
 			    	?>
 						<table class="tblone">
@@ -50,7 +62,7 @@
                                      $total=$result['price'] * $result['quantity'];
 								echo $total; 
 								?></td>
-								<td><a href="">X</a></td>
+								<td><a onclick="return confirm('Are you sure to delete?');" href="?delpro=<?php echo $result['cartId']; ?>">X</a></td>
 							</tr>
 							<?php
 							$sum= $sum+$total; 

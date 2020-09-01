@@ -69,5 +69,17 @@ class Cart {
             return $msg;
 	     }
 	}
+	public function delProductByCart($delId){
+		$delId=mysqli_real_escape_string($this->db->link, $delId);
+
+		$query = "DELETE FROM tbl_cart WHERE cartId = '$delId'";
+		$deldata = $this->db->delete($query);
+		if ($deldata) {
+			echo "<script>window.location ='cart.php';</script>";
+		}else{
+			$msg="<span class='error'>Product not deleted.</span>";
+            return $msg;
+		}
+	}
 }
 ?>
