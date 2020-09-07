@@ -6,7 +6,7 @@
 
 <?php
 
-class User {
+class Customer{
 	private $db;
 	private $fb;
 	public function __construct()

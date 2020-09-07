@@ -13,7 +13,9 @@
      $db = new Database();
      $fm = new Format();
      $pd = new Product();
+     $cat= new Category();
      $ct = new Cart();
+     $cmr= new Customer();
 ?>
 
 <?php
@@ -66,7 +68,8 @@
 										if ($getData) {
 											$sum = Session::get("sum");
 											$qty = Session::get("qty");
-										    echo "$".$sum."; Quantity: ".$qty;
+										    //echo "$".$sum."; Quantity: ".$qty;
+                                           echo "$".$sum."; Qty: ".$qty;
 										}else {
 											echo"(Empty)";
 										}

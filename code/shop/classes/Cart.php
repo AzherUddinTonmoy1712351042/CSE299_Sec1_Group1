@@ -62,8 +62,7 @@ class Cart {
 
 	     	$updated_row = $this->db->update($query);
 	     	If($updated_row){
-		   $msg = "<span class='success'>quantity updated successfully.</span>";
-			return $msg;
+		   header("Location:cart.php");
 	     }else{
 		      $msg="<span class='error'>quantity not Updated successfully.</span>";
             return $msg;
