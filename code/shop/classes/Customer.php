@@ -72,7 +72,7 @@ class Customer{
 		}	else{
 					$msg= "<span class='error'>Email or Password not matched!</span>";
 					return $msg;
-		}
+		} 
 	}
 
 }
