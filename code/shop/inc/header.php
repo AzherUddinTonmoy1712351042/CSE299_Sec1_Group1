@@ -107,8 +107,17 @@
 <?php 
    $chkCart = $ct->checkCartTable();
    if($chkCart){ ?>
-   	<li><a href="cart.php">Cart</a></li>
- <?php  } ?>	  
+   		<li><a href="cart.php">Cart</a></li>
+   		<li><a href="payment.php">Payment</a></li>
+ <?php  } ?>
+
+<?php 
+   $cmrId= Session :: get("cmrId");
+   $chkOrder = $ct->checkOrder($cmrId);
+   if($chkOrder){ ?>
+   		<li><a href="orderdetails.php">Order Details</a></li>
+ <?php  } ?>
+
 <?php 
    $login= Session :: get("cuslogin");
    if($login== true){ ?>

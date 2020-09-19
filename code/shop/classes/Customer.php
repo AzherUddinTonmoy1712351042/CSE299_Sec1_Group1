@@ -79,6 +79,43 @@ class Customer{
 		$result = $this->db->select($query);
 		return $result;
 	}
+	public function customerUpdate($data, $cmrId){
+     $name       =mysqli_real_escape_string($this->db->link, $data['name']);
+     $address       =mysqli_real_escape_string($this->db->link, $data['address']);
+     $city       =mysqli_real_escape_string($this->db->link, $data['city']);
+     $country       =mysqli_real_escape_string($this->db->link, $data['country']);
+     $zip       =mysqli_real_escape_string($this->db->link, $data['zip']);
+     $phone       =mysqli_real_escape_string($this->db->link, $data['phone']);
+     $email       =mysqli_real_escape_string($this->db->link, $data['email']);
+     
+
+     if ($name == "" || $address == "" || $city == "" || $country == "" || $zip == "" || $phone == "" || $email == "" ) {
+    	$msg= "<span class='error'>Fields must not be empty!</span>";
+		return $msg;
+    }else{
+    	 	$query="UPDATE tbl_customer
+	     	        SET
+	     	         name    ='$name',
+	     	         address ='$address',
+	     	         city    ='$city',
+	     	         country ='$country',
+	     	         zip     ='$zip',
+	     	         phone   ='$phone',
+	     	         email   ='$email'
+	     	        WHERE id ='$cmrId'" ;
+	     	$updated_row = $this->db->update($query);
+
+	     	If($updated_row){
+		   $msg = "<span class='success'>Customer data updated successfully.</span>";
+			return $msg;
+	     }else{
+		      $msg="<span class='error'>Customer data not Updated successfully.</span>";
+            return $msg;
+	     
+	     }
+    }
+
+	}
 	
 
 }
