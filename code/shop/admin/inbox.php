@@ -1,58 +1,64 @@
-﻿<?php include 'inc/header.php';?>
+<?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
+
+<?php
+     $filepath = realpath(dirname(__FILE__));
+	 include_once ($filepath.'/../classes/Cart.php');
+	 $ct = new Cart();
+	 $fm = new Format();
+	 
+?>
+<?php 
+if(isset($_GET['shiftid'])){
+	$id=$_GET['shiftid'];
+	$time=$_GET['time'];
+	$price=$_GET['price'];
+	$shift=$ct->productShifted($id,$time,$price);
+}
+?>
         <div class="grid_10">
             <div class="box round first grid">
                 <h2>Inbox</h2>
+                <?php 
+                 if(isset($shift)){
+                 	echo $shift;
+                 }
+                ?>
                 <div class="block">        
                     <table class="data display datatable" id="example">
 					<thead>
 						<tr>
-							<th>Serial No.</th>
-							<th>Message</th>
+							<th>ID</th>
+							<th>Order Time</th>
+							<th>Product</th>
+							<th>Quantity</th>
+							<th>Price</th>
+							<th>Cust. Id</th>
+							<th>Address</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
+						<?php 
+						   $getOrder= $ct-> getAllOrderPro();
+						   if($getOrder){
+						   	while($result = $getOrder->fetch_assoc()){
+						?>
 						<tr class="odd gradeX">
-							<td>01</td>
-							<td>Internet</td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
+							<td><?php echo $result['id']; ?></td>
+							<td><?php echo $fm->formatDate($result['date']); ?></td>
+							<td><?php echo $result['productName']; ?></td>
+							<td><?php echo $result['quantity']; ?></td>
+							<td><?php echo $result['price']; ?></td>
+							<td><?php echo $result['cmrId']; ?></td>
+							<td><a href="customer.php?custId=<?php echo $result['cmrId']; ?>">View Details</a></td>
+							<?php if($result['status']=='0'){ ?>
+								<td><a href="?shiftid=<?php echo $result['cmrId'];?> &price=<?php echo $result['price'];?> & time=<?php echo $result['date'];?>">Shifted</a> </td> 
+					        <?php } else { ?>
+							<td><a href="?shiftid=<?php echo $result['cmrId'];?> &price=<?php echo $result['price'];?> & time=<?php echo $result['date'];?>">Remove</a> </td> 
+							 <?php } ?>
 						</tr>
-						<tr class="even gradeC">
-							<td>02</td>
-							<td>Explorer </td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>03</td>
-							<td>Internet</td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="even gradeC">
-							<td>04</td>
-							<td>Explorer </td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-							<tr class="odd gradeX">
-							<td>05</td>
-							<td>Internet</td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="even gradeC">
-							<td>06</td>
-							<td>Explorer </td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>07</td>
-							<td>Internet</td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="even gradeC">
-							<td>08</td>
-							<td>Explorer </td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
+						<?php } } ?>
 					</tbody>
 				</table>
                </div>

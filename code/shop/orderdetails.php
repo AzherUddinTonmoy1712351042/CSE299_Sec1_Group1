@@ -37,7 +37,7 @@
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo $result['productName']; ?></td>
                                 <td><img src="admin/<?php echo $result['image']; ?>" alt=""/></td>
-                                <td>$<?php echo $result['quantity']; ?></td>
+                                <td><?php echo $result['quantity']; ?></td>
                 
                                 <td>$<?php 
                                      $total=$result['price'];
